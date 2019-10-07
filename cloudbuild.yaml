@@ -1,0 +1,5 @@
+steps:
+  - name: "node:10.16.3"
+    id: root-install
+    entrypoint: npm
+    args: ["install"]
