@@ -1,7 +1,7 @@
 {
   "name": "profile-create-event-publisher",
   "description": "Cloud Function: Bookit Profile Creation Event Publisher",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "lint": "eslint src",
     "test": "NODE_ENV=test nyc mocha tests --recursive --exit"
@@ -32,8 +32,8 @@
     }
   },
   "dependencies": {
-    "@google-cloud/firestore": "^2.3.0",
     "@google-cloud/logging-winston": "^2.1.0",
+    "@google-cloud/pubsub": "^1.1.0",
     "lodash": "^4.17.15",
     "winston": "^3.2.1"
   },

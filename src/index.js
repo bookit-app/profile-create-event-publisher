@@ -1,5 +1,10 @@
 'use strict';
 
-//TODO: Function to hook into firestore object create event for profiles
-// when event is fired build a message and put it onto pubsub so other services
-// can reach to this in a decoupled way which can be reprocessed.
+const { processor } = require('./processor');
+const { PubSub } = require('@google-cloud/pubsub');
+const pubsub = new PubSub();
+const topic = pubsub.topic('profile-creation');
+
+module.exports.profileCreationPublisher = (data, context) => {
+  return processor(data, context, topic);
+};

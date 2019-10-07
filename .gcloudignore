@@ -17,9 +17,7 @@ node_modules
 README.md
 .DS_Store
 cloudbuild*
-Gruntfile.js
 tests
 coverage
-.tscache
 .nyc_output
 

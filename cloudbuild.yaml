@@ -1,5 +1,24 @@
 steps:
   - name: "node:10.16.3"
-    id: root-install
     entrypoint: npm
     args: ["install"]
+
+  - name: "node:10.16.3"
+    entrypoint: npm
+    args: ["run", "lint"]
+
+  - name: "node:10.16.3"
+    entrypoint: npm
+    args: ["run", "test"]
+
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      - functions
+      - deploy
+      - profile-creation-event-publisher
+      - --source=.
+      - --trigger-event=providers/cloud.firestore/eventTypes/document.create
+      - --trigger-resource=projects/sweng-581-capstone/databases/(default)/documents/profile/{profileId}
+      - --runtime=nodejs10
+      - --region=us-central1
+      - --entry-point=profileCreationPublisher
