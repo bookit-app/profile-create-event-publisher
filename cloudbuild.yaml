@@ -18,7 +18,7 @@ steps:
       - profile-creation-event-publisher
       - --source=.
       - --trigger-event=providers/cloud.firestore/eventTypes/document.create
-      - --trigger-resource=projects/sweng-581-capstone/databases/(default)/documents/profile/{profileId}
+      - --trigger-resource=projects/bookit-app-260021/databases/(default)/documents/profile/{profileId}
       - --runtime=nodejs10
-      - --region=us-central1
+      - --region=us-east1
       - --entry-point=profileCreationPublisher
